@@ -23,16 +23,10 @@ def main():
     print("__________________________________________")
     print("| Thanks for using the Password Generator |")
     print("------------------------------------------")
-
-
 def getPasswordLength():
-    # Set the password length with constraints for the password length
     password_length = int(input("\nEnter the length of password: "))
     return password_length
-
-
 def getCharacters():
-    # define the characters
     lower = string.ascii_lowercase
     upper = string.ascii_uppercase
     num = string.digits
@@ -40,12 +34,7 @@ def getCharacters():
 
     all_characters = lower + upper + num + symbols
     return all_characters
-
-
 def generatePassword(all_characters, password_length):
-    # generate a password string
     password = "".join(random.sample(all_characters, password_length))
     return password
-
-
 main()
