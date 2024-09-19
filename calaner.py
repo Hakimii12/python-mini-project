@@ -1,4 +1,3 @@
-# Program to display calendar
 def display_calendar(y, m):
     import calendar
 
