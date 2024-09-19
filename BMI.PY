@@ -1,14 +1,4 @@
 def calculate_bmi(height, weight):
-    """
-    Calculate BMI given height (in meters) and weight (in kilograms).
-
-    Args:
-        height (float): Height in meters.
-        weight (float): Weight in kilograms.
-
-    Returns:
-        float: Calculated BMI.
-    """
     try:
         bmi = round(weight / (height**2), 2)
         return bmi
@@ -17,15 +7,7 @@ def calculate_bmi(height, weight):
 
 
 def interpret_bmi(bmi):
-    """
-    Interpret the BMI and provide a classification.
 
-    Args:
-        bmi (float): Calculated BMI.
-
-    Returns:
-        str: BMI interpretation.
-    """
     if bmi is None:
         return "Invalid input. Height should be greater than 0."
 
