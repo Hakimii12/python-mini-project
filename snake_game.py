@@ -2,49 +2,38 @@ import pygame
 import time
 import random
 
-pygame.init()  # Initialize pygame.
+pygame.init() 
 
 white = (255, 255, 255)
 black = (36, 36, 36)
 red = (213, 50, 80)
 green = (0, 255, 0)
 
-# Sizes for window of the game
 display_width = 600
 display_height = 500
 
 display = pygame.display.set_mode(
-    (display_width, display_height))  # Apply size to the game
-pygame.display.set_caption('Snake')  # Set title of game window
+    (display_width, display_height)) 
+pygame.display.set_caption('Snake') 
 
 clock = pygame.time.Clock()
 
 snake_block = 10
-snake_speed = 15  # Speed of snake (Player)
+snake_speed = 15
 
-
-# Render Score Label
 def score(score):
-    # Size and font of score label (Top-Left)
     score_font = pygame.font.SysFont("arial", 15)
     value = score_font.render(" Score: " + str(score), True, white)
     display.blit(value, [0, 0])
-
-# Render Snake body
 def snake(snake_block, snake_list):
     for x in snake_list:
         pygame.draw.rect(display, green, [
                          x[0], x[1], snake_block, snake_block], border_radius=3)
 
-
-# Render message in screen
 def message(msg, color, size=12):
     font_style = pygame.font.SysFont("bahnschrift", size)
     mesg = font_style.render(msg, True, color)
     display.blit(mesg, [display_width / 8, display_height / 5])
-
-# loop of game
-
 
 def gameLoop():
     game_over = False
@@ -74,11 +63,6 @@ def gameLoop():
             score(Length_of_snake - 1)
             pygame.display.update()
 
-            # If Q pressed
-            # The game will close
-
-            # If Space is pressed
-            # Are start new game
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
@@ -87,8 +71,6 @@ def gameLoop():
 
                     if event.key == pygame.K_SPACE:
                         gameLoop()
-
-        # Keys to move the snake (W A S D)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game_over = True
